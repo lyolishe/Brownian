@@ -1,4 +1,4 @@
-# Симулятор броуновского движения
+**# Симулятор броуновского движения
 
 В этом проекте реализуется двухмерный симулятор хаотичного теплового движения.
 
@@ -83,22 +83,16 @@ $$
 
 4. **Решение уравнений**:
  Мы можем выразить новые скорости через старые. Для упругого столкновения с одинаковыми шарами, можно использовать формулу:
- $$
- \mathbf{v_1'} = \mathbf{v_1} - \frac{2m}{m + m} \frac{(\mathbf{v_1} - \mathbf{v_2}) \cdot \mathbf{n}}{|\mathbf{n}|^2} \mathbf{n}
- $$
- $$
- \mathbf{v_2'} = \mathbf{v_2} - \frac{2m}{m + m} \frac{(\mathbf{v_2} - \mathbf{v_1}) \cdot (-\mathbf{n})}{|-\mathbf{n}|^2} (-\mathbf{n})
- $$
- Здесь $$\mathbf{n}$$ — единичный вектор, направленный от одного шара к другому на момент столкновения.
+ $$ \mathbf{v_1'} = \mathbf{v_1} - \frac{2m}{m + m} \frac{(\mathbf{v_1} - \mathbf{v_2}) \cdot \mathbf{n}}{|\mathbf{n}|^2} \mathbf{n} $$
+
+ $$ \mathbf{v_2'} = \mathbf{v_2} - \frac{2m}{m + m} \frac{(\mathbf{v_2} - \mathbf{v_1}) \cdot (-\mathbf{n})}{|-\mathbf{n}|^2} (-\mathbf{n}) $$
+ Здесь $\mathbf{n}$ — единичный вектор, направленный от одного шара к другому на момент столкновения.
 
  Упрощая, получаем:
- $$
- \mathbf{v_1'} = \mathbf{v_1} - \frac{(\mathbf{v_1} - \mathbf{v_2}) \cdot \mathbf{n}}{|\mathbf{n}|^2} \mathbf{n}
- $$
- $$
- \mathbf{v_2'} = \mathbf{v_2} - \frac{(\mathbf{v_2} - \mathbf{v_1}) \cdot (-\mathbf{n})}{|-\mathbf{n}|^2} (-\mathbf{n})
- 
+ $$ \mathbf{v_1'} = \mathbf{v_1} - \frac{(\mathbf{v_1} - \mathbf{v_2}) \cdot \mathbf{n}}{|\mathbf{n}|^2} \mathbf{n} $$
+ $$ \mathbf{v_2'} = \mathbf{v_2} - \frac{(\mathbf{v_2} - \mathbf{v_1}) \cdot (-\mathbf{n})}{|-\mathbf{n}|^2} (-\mathbf{n})$$
+
 ## Технологии
 В проекте используется numpy для удобства работы с векторами.
 Так же используется tkinter для визуализации симуляции.
-Поскольку цель проекта - освоение numpy, мощности **GPU исользованы не будут**.
+Поскольку цель проекта - освоение numpy, мощности **GPU исользованы не будут**.**
