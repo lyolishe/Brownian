@@ -1,16 +1,38 @@
-# This is a sample Python script.
+import numpy as np
+# import tkinter
+from constants import *
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+#root = tkinter.Tk()
+#root.title('Brownian')
+#root.geometry('480x480')
+#root.update()
 
+int_type = np.dtype('int')
+vector_type = np.dtype([('x', int_type), ('y', int_type)])
+particle_type = np.dtype([
+    ('cords', vector_type),
+    ('velocity', vector_type)
+])
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+particles = np.zeros(10, dtype=particle_type)
 
+def init():
+    global particles
+    for particle in particles:
+        rand = np.random.randint(0,initial_particle_max_speed, 4 )
+        particle['cords']['x'] = rand[0]
+        particle['cords']['y'] = rand[1]
+        particle['velocity']['x'] = rand[2]
+        particle['velocity']['y'] = rand[3]
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+init()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+def tick():
+    for particle in particles:
+        particle['cords']['x'] = particle['cords']['x'] + particle['velocity']['x']
+        particle['cords']['y'] = particle['cords']['y'] + particle['velocity']['y']
+        # if collide with wall
+        # if collide with particle
+    # rerun by framerate
+
+tick()
